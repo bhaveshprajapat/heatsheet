@@ -29,14 +29,23 @@ jobs:
       - name: Ready Deployment YAML
         run: |
           sed -i 's/#WEB_USERNAME/${{ secrets.WEB_USERNAME }}/g' ./k8s/deploy.yaml
+          echo 'WEB_USERNAME'
           sed -i 's/#WEB_PASSWORD/${{ secrets.WEB_PASSWORD }}/g' ./k8s/deploy.yaml
+          echo 'WEB_PASSWORD'
           sed -i 's/#TADO_USERNAME/${{ secrets.TADO_USERNAME }}/g' ./k8s/deploy.yaml
+          echo 'TADO_USERNAME'        
           sed -i 's/#TADO_PASSWORD/${{ secrets.TADO_PASSWORD }}/g' ./k8s/deploy.yaml
-          sed -i 's/#INFLUXDB_BUCKET/${{ secrets.INFLUXDB_BUCKET }}/g' ./k8s/deploy.yaml
+          echo 'TADO_PASSWORD'
+          sed -i 's/#INFLUXDB_BUCKET/${{ secrets.INFLUXDB_BUCKET }}/g' ./k8s/deploy.yamle
+            echo 'INFLUXDB_BUCKET'
           sed -i 's/#INFLUXDB_TOKEN/${{ secrets.INFLUXDB_TOKEN }}/g' ./k8s/deploy.yaml
+          echo 'INFLUXDB_TOKEN'
           sed -i 's/#INFLUXDB_ORG/${{ secrets.INFLUXDB_ORG }}/g' ./k8s/deploy.yaml
+          echo 'INFLUXDB_ORG'
           sed -i 's/#INFLUXDB_ENABLED/${{ secrets.INFLUXDB_ENABLED }}/g' ./k8s/deploy.yaml
+          echo 'INFLUXDB_ENABLED'
           sed -i 's/#INFLUXDB_URL/${{ secrets.INFLUXDB_URL }}/g' ./k8s/deploy.yaml
+          echo 'INFLUXDB_URL'
 
 
       - uses: azure/k8s-set-context@v3
