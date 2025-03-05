@@ -44,8 +44,6 @@ jobs:
           echo 'INFLUXDB_ORG'
           sed -i 's/#INFLUXDB_ENABLED/${{ secrets.INFLUXDB_ENABLED }}/g' ./k8s/deploy.yaml
           echo 'INFLUXDB_ENABLED'
-          sed -i "s/#INFLUXDB_URL/${{ secrets.INFLUXDB_URL }}/g" ./k8s/deploy.yaml
-          echo 'INFLUXDB_URL'
 
 
       - uses: azure/k8s-set-context@v3

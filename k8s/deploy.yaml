@@ -38,3 +38,5 @@ spec:
               value: "#INFUXDB_USERNAME"
             - name: INFLUXDB_PASSWORD
               value: "#INFUXDB_PASSWORD"
+            - name: INFLUXDB_URL
+              value: "http://influxdb-1741188984:8086"
