@@ -1,19 +1,40 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bhav-io
+  name: heatsheet
   labels:
-    app: bhav-io
+    app: heatsheet
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: bhav-io
+      app: heatsheet
   template:
     metadata:
       labels:
-        app: bhav-io
+        app: heatsheet
     spec:
       containers:
-        - name: bhav-io
-          image: registry.k8s.bhav.io/heatsheet/heatsheet:#RELEASE_VERSION
+        - name: heatsheet
+          image: registry.k8s.bhav.io/heatsheet/heatsheet:v1.0.0
+          env:
+            - name: WEB_USERNAME
+              value: "#WEB_USERNAME"
+            - name: WEB_PASSWORD
+              value: "#WEB_PASSWORD"
+            - name: TADO_USERNAME
+              value: "#TADO_USERNAME"
+            - name: TADO_PASSWORD
+              value: "#TADO_PASSWORD"
+            - name: INFLUXDB_BUCKET
+              value: "#INFLUXDB_BUCKET"
+            - name: INFLUXDB_TOKEN
+              value: "#INFUXDB_TOKEN"
+            - name: INFLUXDB_ORG
+              value: "#INFLUXDB_ORG"
+            - name: INFLUXDB_ENABLED
+              value: "#INFLUXDB_ENABLED"
+            - name: INFLUXDB_USERNAME
+              value: "#INFUXDB_USERNAME"
+            - name: INFLUXDB_PASSWORD
+              value: "#INFUXDB_PASSWORD"
