@@ -20,10 +20,10 @@ jobs:
           username: bhav
           password: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
 
-#      - name: Build image
-#        run: |
-#          docker build app -t registry.k8s.bhav.io/heatsheet/heatsheet:v1.0.0
-#          docker push registry.k8s.bhav.io/heatsheet/heatsheet:v1.0.0
+      - name: Build image
+        run: |
+          docker build app -t registry.k8s.bhav.io/heatsheet/heatsheet:v1.0.0 --platform linux/arm64
+          docker push registry.k8s.bhav.io/heatsheet/heatsheet:v1.0.0
           
 
       - name: Ready Deployment YAML
