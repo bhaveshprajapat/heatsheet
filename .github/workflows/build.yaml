@@ -20,10 +20,10 @@ jobs:
           username: bhav
           password: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
 
-      - name: Build image
-        run: |
-          docker build app -t registry.k8s.bhav.io/heatsheet/heatsheet:v1.0.0
-          docker push registry.k8s.bhav.io/heatsheet/heatsheet:v1.0.0
+#      - name: Build image
+#        run: |
+#          docker build app -t registry.k8s.bhav.io/heatsheet/heatsheet:v1.0.0
+#          docker push registry.k8s.bhav.io/heatsheet/heatsheet:v1.0.0
           
 
       - name: Ready Deployment YAML
@@ -36,15 +36,15 @@ jobs:
           echo 'TADO_USERNAME'        
           sed -i 's/#TADO_PASSWORD/${{ secrets.TADO_PASSWORD }}/g' ./k8s/deploy.yaml
           echo 'TADO_PASSWORD'
-          sed -i 's/#INFLUXDB_BUCKET/${{ secrets.INFLUXDB_BUCKET }}/g' ./k8s/deploy.yamle
-            echo 'INFLUXDB_BUCKET'
+          sed -i 's/#INFLUXDB_BUCKET/${{ secrets.INFLUXDB_BUCKET }}/g' ./k8s/deploy.yaml
+          echo 'INFLUXDB_BUCKET'
           sed -i 's/#INFLUXDB_TOKEN/${{ secrets.INFLUXDB_TOKEN }}/g' ./k8s/deploy.yaml
           echo 'INFLUXDB_TOKEN'
           sed -i 's/#INFLUXDB_ORG/${{ secrets.INFLUXDB_ORG }}/g' ./k8s/deploy.yaml
           echo 'INFLUXDB_ORG'
           sed -i 's/#INFLUXDB_ENABLED/${{ secrets.INFLUXDB_ENABLED }}/g' ./k8s/deploy.yaml
           echo 'INFLUXDB_ENABLED'
-          sed -i 's/#INFLUXDB_URL/${{ secrets.INFLUXDB_URL }}/g' ./k8s/deploy.yaml
+          sed -i "s/#INFLUXDB_URL/${{ secrets.INFLUXDB_URL }}/g" ./k8s/deploy.yaml
           echo 'INFLUXDB_URL'
 
 
